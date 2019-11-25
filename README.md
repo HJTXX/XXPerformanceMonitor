@@ -1,5 +1,5 @@
 ## XXPerformanceMonitor
-![pod](https://img.shields.io/badge/pod-v1.0.2-yellow) ![platforms](https://img.shields.io/badge/platforms-iOS-brightgreen) ![support](https://img.shields.io/badge/support-iOS%209%2B-informational)![lisence](https://img.shields.io/badge/lisence-MIT-lightgrey)
+![pod](https://img.shields.io/badge/pod-v1.0.2-yellow) ![platforms](https://img.shields.io/badge/platforms-iOS-brightgreen) ![support](https://img.shields.io/badge/support-iOS%209%2B-informational) ![lisence](https://img.shields.io/badge/lisence-MIT-lightgrey)
 
  Swift版轻量卡顿监控工具，支持主线程和子线程，一句代码即可轻松集成。
 
