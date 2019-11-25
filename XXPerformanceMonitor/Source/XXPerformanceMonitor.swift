@@ -8,12 +8,12 @@
 
 import UIKit
 
-enum XXPerformanceMonitorDomain: String {
+public enum XXPerformanceMonitorDomain: String {
     case mainThread  = "HJTXX.MainThreadMonitoring"
     case childThread = "HJTXX.ChildThreadMonitoring"
 }
 
-protocol XXPerformanceMonitorDelegate: class {
+public protocol XXPerformanceMonitorDelegate: class {
     func handleThread(reason: String, domain: XXPerformanceMonitorDomain)
 }
 
@@ -21,7 +21,7 @@ public final class XXPerformanceMonitor: NSObject {
     public static let sharedInstance = XXPerformanceMonitor()
     public var mainThreadThreshold: CGFloat = 2
     public var childThreadThreshold: CGFloat = 2
-    weak var delegate: XXPerformanceMonitorDelegate?
+    public weak var delegate: XXPerformanceMonitorDelegate?
 
     private var mainThreadMonitor: XXMainThreadMonitor?
     private var childThreadMonitor: XXChildThreadMonitor?
