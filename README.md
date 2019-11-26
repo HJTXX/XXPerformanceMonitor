@@ -9,8 +9,9 @@
 ```
 XXPerformanceMonitor.sharedInstance.startMonitorMain()
 ```
-如果想要监听子线程，只需将目标线程加入到监控器中：
+如果想要监听子线程队列，只需将其加入到监控器中：
 ```
+let testQueue = OperationQueue()
 XXPerformanceMonitor.sharedInstance.addMonitorChild(testQueue)
 ```
 如果想停止监听，可以直接调用如下方法，关闭所有监控：
