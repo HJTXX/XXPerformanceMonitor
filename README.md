@@ -28,7 +28,7 @@ public protocol XXPerformanceMonitorDelegate: class {
     func handleThread(reason: String, domain: XXPerformanceMonitorDomain)
 }
 ```
-更多详细请移步[天罗地网？ iOS卡顿监控实战](https://juejin.im/post/5db65fe0e51d452a1e58f37c)
+更多详细请移步[《天罗地网？ iOS卡顿监控实战》](https://juejin.im/post/5db65fe0e51d452a1e58f37c)
 
 ## 安装
 1. Cocoapods
