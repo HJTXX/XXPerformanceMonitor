@@ -29,7 +29,7 @@ public final class XXPerformanceMonitor: NSObject {
     public func startMonitorMain() {
         guard mainThreadMonitor == nil else { return }
 
-        mainThreadMonitor = XXMainThreadMonitor(mainThreadThreshold) { [weak self] in
+        mainThreadMonitor = XXMainThreadMonitor(threshold: mainThreadThreshold) { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.delegate?.handleThread(reason: "👮‍♀️ MainThreadMonitor 👮‍♀️：主线程卡顿超过\(strongSelf.mainThreadThreshold)S", domain: .mainThread)
         }
@@ -37,7 +37,7 @@ public final class XXPerformanceMonitor: NSObject {
 
     public func addMonitorChild(_ queue: OperationQueue) {
         if childThreadMonitor == nil {
-            childThreadMonitor = XXChildThreadMonitor(childThreadThreshold) { [weak self] (queue) in
+            childThreadMonitor = XXChildThreadMonitor(threshold: childThreadThreshold) { [weak self] (queue) in
                 guard let strongSelf = self else { return }
                 strongSelf.delegate?.handleThread(reason: "👮‍♀️ ChildThreadMonitor 👮‍♀️：子线程【\(queue.name ?? "")】卡顿超过\(strongSelf.childThreadThreshold)S", domain: .childThread)
             }

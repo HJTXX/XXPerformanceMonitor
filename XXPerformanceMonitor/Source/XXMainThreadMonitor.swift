@@ -8,13 +8,12 @@
 
 import UIKit
 
-class XXMainThreadMonitor: NSObject {
+class XXMainThreadMonitor {
     private let pingThread: XXPingMainThread
 
-    public init(_ threshold: CGFloat, _ catchHandler: @escaping () -> Void) {
+    public init(threshold: CGFloat, _ catchHandler: @escaping () -> Void) {
         pingThread = XXPingMainThread(threshold, catchHandler)
         pingThread.start()
-        super.init()
     }
 
     deinit {

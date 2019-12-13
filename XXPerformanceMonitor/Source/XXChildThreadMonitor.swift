@@ -8,16 +8,15 @@
 
 import UIKit
 
-class XXChildThreadMonitor: NSObject {
+class XXChildThreadMonitor {
     private let pingThread: XXPingChildThread
     var queues: [OperationQueue] {
         return pingThread.queues
     }
 
-    public init(_ threshold: CGFloat, catchHandler: @escaping (OperationQueue) -> Void) {
-        pingThread = XXPingChildThread(threshold, handler: catchHandler)
+    public init(threshold: CGFloat, catchHandler: @escaping (OperationQueue) -> Void) {
+        pingThread = XXPingChildThread(t: threshold, handler: catchHandler)
         pingThread.start()
-        super.init()
     }
 
     func addQueue(_ queue: OperationQueue) {
@@ -39,7 +38,7 @@ private final class XXPingChildThread: Thread {
     private(set) var queues: [OperationQueue] = [] // 需要监测的queue
     private(set) var executingOperations: [OperationQueue: Operation] = [:] // 各queue正在执行的operation
 
-    init(_ t: CGFloat, handler: @escaping (OperationQueue) -> Void) {
+    init(t: CGFloat, handler: @escaping (OperationQueue) -> Void) {
         threshold = t
         catchHandler = handler
         super.init()
@@ -55,6 +54,11 @@ private final class XXPingChildThread: Thread {
 
     func removeQueue(_ queue: OperationQueue) {
         queues = queues.filter{ $0 != queue }
+    }
+
+    func clean() {
+        queues.removeAll()
+        executingOperations.removeAll()
     }
 
     override func main() {
