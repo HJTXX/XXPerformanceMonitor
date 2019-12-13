@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "XXPerformanceMonitor"
-  spec.version      = "1.0.2"
+  spec.version      = "1.1.1"
   spec.summary      = "Swift版轻量卡顿监控工具，支持主线程和子线程，一句代码即可轻松集成"
   spec.homepage     = "https://github.com/HJTXX/XXPerformanceMonitor"
   spec.license      = "MIT"
